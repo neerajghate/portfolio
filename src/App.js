@@ -121,7 +121,7 @@ function App() {
             <a href="https://github.com/neerajghate" target="_blank" rel="noopener noreferrer">
               <FaGithub size={30} />
             </a>
-            <a href="https://linkedin.com/in/neerajghate" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/neeraj-ghate" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={30} />
             </a>
           </div>
