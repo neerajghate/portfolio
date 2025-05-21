@@ -126,7 +126,7 @@ function App() {
             </a>
           </div>
         </div>
-        <img src="/profile.jpg" alt="Profile" className="hero-image" />
+        <img src="/p.jpg" alt="Profile" className="hero-image" />
       </header>
 
       {/* About Section */}
