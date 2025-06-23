@@ -1,17 +1,34 @@
-// Home.js
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import "./Home.css";
 
-function Home() {
-    return (
-        <div className="home">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Software Developer | Aspiring Product Manager | AI Enthusiast</p>
-            <div>
-                <a href="https://linkedin.com/in/neeraj-ghate" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/neerajghate" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-        </div>
-    );
-}
+const Home = () => {
+  return (
+    <section className="hero-section">
+      <motion.div
+        className="hero-content"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1 className="hero-title">
+          <span className="gradient-text">Hello, I'm Neeraj</span>
+        </h1>
+        <p className="hero-subtitle">
+          A Software Engineer building cloud-native and full-stack applications with a focus on clean code and scalable architecture.
+        </p>
+
+        <motion.a
+          href="#projects"
+          className="cta-button"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          View My Work
+        </motion.a>
+      </motion.div>
+    </section>
+  );
+};
 
 export default Home;

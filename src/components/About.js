@@ -1,17 +1,19 @@
-// About.js
-import React from 'react';
+import React from "react";
 
-function About() {
-    return (
-        <div className="about">
-            <h2>About Me</h2>
-            <p>
-                I am Neeraj Ghate, a graduate student in Computer Science at the University of Colorado Denver.
-                I am passionate about software development and AI technologies.
-            </p>
-            <p>Graduating in May 2025.</p>
-        </div>
-    );
-}
+const About = () => {
+  return (
+    <section className="container">
+      <h2 className="section-header">About Me</h2>
+      <p className="about-text">
+        I am a dedicated and detail-oriented <strong>Software Engineer</strong> with a passion for creating scalable web applications, developing
+        cutting-edge AI solutions, and crafting seamless user experiences. My expertise lies in <strong>cloud computing</strong>, <strong>generative AI</strong>, and <strong>problem-solving</strong> for real-world challenges.
+      </p>
+      <p className="about-text">
+        I thrive in collaborative environments, continuously learning and contributing to impactful projects. My journey as a <strong>technology
+        enthusiast</strong> fuels my commitment to innovation and my drive to build solutions that make a difference.
+      </p>
+    </section>
+  );
+};
 
 export default About;

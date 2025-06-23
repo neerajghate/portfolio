@@ -1,0 +1,92 @@
+/* Education.css */
+
+.education-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  color: #111;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  color: #1f1f1f;
+  font-weight: 700;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.education-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.education-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 4px;
+}
+
+.education-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #222;
+}
+
+.education-info p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 2px 0;
+}
+
+.education-details {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #444;
+  padding-left: 0.5rem;
+}
+
+.education-details li {
+  margin-bottom: 0.5rem;
+  list-style: disc;
+  padding-left: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .education-section {
+    padding: 40px 10px;
+  }
+
+  .education-card {
+    padding: 1.2rem 1.4rem;
+  }
+
+  .education-logo {
+    width: 40px;
+    height: 40px;
+  }
+}

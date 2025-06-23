@@ -1,0 +1,114 @@
+.experience-section {
+  padding: 60px 20px;
+  background-color: #fefefe;
+}
+
+.experience-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+  text-align: left;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  display: flex;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border: 1px solid #eee;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.experience-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.experience-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  padding: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.experience-info {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+}
+
+.experience-role {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.2rem;
+}
+
+.experience-company {
+  font-size: 1.1rem;
+  color: #007acc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.experience-company:hover {
+  text-decoration: underline;
+}
+
+.experience-duration {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.experience-duration::before {
+  content: '\23F0'; /* Clock emoji */
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.experience-description {
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0.5rem 0 0;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  list-style-type: disc;
+}
+
+.experience-card:hover .experience-description {
+  opacity: 1;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.experience-description li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}

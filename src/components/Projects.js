@@ -1,35 +1,73 @@
-// Projects.js
-import React from 'react';
+import React, { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+import "./Projects.css";
 
-function Projects() {
-    const projects = [
-        {
-            title: 'Human Fall Detection',
-            description: '2D ConvNet system for MHI classification, achieving 98% accuracy.',
-            technologies: ['Python', 'OpenCV', 'Keras'],
-            link: 'https://github.com/neerajghate/fall-detection',
-        },
-        {
-            title: 'Customer Segmentation',
-            description: 'K-means clustering to analyze customer spending patterns.',
-            technologies: ['Python', 'Matplotlib', 'Scikit-learn'],
-            link: 'https://github.com/neerajghate/customer-segmentation',
-        },
-    ];
+const Projects = ({ repositories = [] }) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-    return (
-        <div className="projects">
-            <h2>Projects</h2>
-            {projects.map((project, index) => (
-                <div key={index}>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <p>Technologies: {project.technologies.join(', ')}</p>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">View Project</a>
-                </div>
-            ))}
-        </div>
-    );
-}
+  const filteredRepos = repositories.filter((repo) =>
+    (repo.name + " " + (repo.description || ""))
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <section className="projects-section">
+      <h2 className="section-title">Projects</h2>
+
+      <input
+        type="text"
+        className="project-search"
+        placeholder="Search projects..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
+      <div className="projects-grid">
+        {filteredRepos.map((repo) => (
+          <motion.div
+            key={repo.id}
+            className="project-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <h3 className="project-name">{repo.name}</h3>
+            <p className="project-desc">
+              {repo.description || "No description provided."}
+            </p>
+
+            {/* Topics */}
+            {repo.topics?.length > 0 && (
+              <div className="project-topics">
+                {repo.topics.map((topic, idx) => (
+                  <span key={idx} className="topic-badge">
+                    #{topic}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div className="project-footer">
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="view-repo-btn"
+              >
+                <FaGithub className="github-icon" /> View on GitHub
+              </a>
+              {repo.language && (
+                <span className="project-language">{repo.language}</span>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Projects;
