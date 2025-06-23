@@ -1,68 +1,105 @@
+/* ───────────────── BAR (fills viewport width) ───────────────── */
 .topbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  z-index: 1000;
+  inset: 0 0 auto 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+
+/* inner row  */
+.topbar-row {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid #eee;
 }
 
+/* logo */
 .logo {
   font-size: 1.4rem;
   font-weight: 600;
   color: #111;
-  margin: 0;
+  text-decoration: none;
 }
 
-.topbar nav {
+/* ─────────────── NAV LINKS ─────────────── */
+nav {
   display: flex;
   gap: 1.8rem;
 }
 
-.topbar a {
+nav a {
   position: relative;
-  text-decoration: none;
-  color: #222;
   font-weight: 500;
-  transition: color 0.3s ease;
+  color: #222;
+  text-decoration: none;
   padding-bottom: 2px;
+  transition: color .25s ease;
 }
 
-.topbar a::after {
+nav a::after {
   content: "";
   position: absolute;
-  width: 0%;
-  height: 2px;
   left: 0;
   bottom: 0;
-  background-color: #007acc;
-  transition: width 0.3s ease-in-out;
+  width: 0%;
+  height: 2px;
+  background: #007acc;
+  transition: width .25s ease;
 }
 
-.topbar a:hover {
-  color: #007acc;
+nav a:hover { color: #007acc; }
+nav a:hover::after { width: 100%; }
+
+/* ─────────────── HAMBURGER BUTTON ─────────────── */
+.menu-btn {
+  display: none;           /* hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .25rem;
+  color: #222;
 }
 
-.topbar a:hover::after {
-  width: 100%;
-}
-
+/* ─────────────── MOBILE (≤ 768 px) ─────────────── */
 @media (max-width: 768px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  /* show hamburger */
+  .menu-btn { display: block; }
 
-  .topbar nav {
+  /* stack logo & burger to the left, push nav under */
+  .topbar-row { flex-wrap: wrap; }
+
+  /* starting (closed) state */
+  nav {
     flex-direction: column;
     width: 100%;
     gap: 1rem;
-    margin-top: 0.5rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .3s ease;
+  }
+
+  /* open state */
+  nav.open { max-height: 400px; }   /* enough for all links */
+
+  /* links fill full width for easier tapping */
+  nav a { padding: .5rem 0; }
+}
+/* ───── offset the fixed bar ───── */
+.topbar + section,
+.topbar + div {
+  /* height of the bar (≈ 72 px) */
+  margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+  /* slightly taller when the hamburger is present */
+  .topbar + section,
+  .topbar + div {
+    margin-top: 80px;
   }
 }

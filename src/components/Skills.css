@@ -69,3 +69,14 @@
 .skill-icon {
   font-size: 1.1rem;
 }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 500px) {   /* single column on very small phones */
+  .skills-grid { grid-template-columns: 1fr; }
+}

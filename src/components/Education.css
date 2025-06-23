@@ -90,3 +90,19 @@
     height: 40px;
   }
 }
+@media (max-width: 768px) {
+  .experience-card,
+  .education-card {
+    padding: 1.25rem 1.4rem;
+  }
+  .experience-header,
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+  .experience-duration,
+  .education-info p {
+    font-size: .9rem;
+  }
+}
