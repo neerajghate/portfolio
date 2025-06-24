@@ -60,7 +60,7 @@ const Hero = () => {
             📄 Resume
           </a>
           <a
-            href="https://calendly.com/neerajghate"
+            href="https://calendly.com/neerajrghate/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="action-button secondary"

@@ -1,29 +1,48 @@
 import React from "react";
 import {
   FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaPython,
-  FaAws, FaGitAlt, FaDocker, FaJava
+  FaAws, FaGitAlt, FaDocker, FaJava, FaCloud, FaLinux
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import "./Skills.css";
 
 const skills = {
-  Frontend: [
-    { name: "React", icon: <FaReact />, link: "https://react.dev", color: "#61DBFB" },
-    { name: "HTML", icon: <FaHtml5 />, link: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
-    { name: "CSS", icon: <FaCss3Alt />, link: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
-    { name: "JavaScript", icon: <FaJs />, link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" }
+  "Programming Languages": [
+    { name: "C", icon: <FaJs />, color: "#555555" },
+    { name: "C++", icon: <FaJs />, color: "#00599C" },
+    { name: "C#", icon: <FaJs />, color: "#68217A" },
+    { name: "Python", icon: <FaPython />, color: "#3776AB" },
+    { name: "Java", icon: <FaJava />, color: "#f89820" },
+    { name: "JavaScript", icon: <FaJs />, color: "#F7DF1E" },
+    { name: "TypeScript", icon: <FaJs />, color: "#007acc" },
+    { name: "HTML", icon: <FaHtml5 />, color: "#E34F26" },
+    { name: "CSS", icon: <FaCss3Alt />, color: "#1572B6" }
   ],
-  Backend: [
-    { name: "Node.js", icon: <FaNodeJs />, link: "https://nodejs.org/", color: "#339933" },
-    { name: "Python", icon: <FaPython />, link: "https://python.org", color: "#3776AB" },
-    { name: "Java", icon: <FaJava />, link: "https://www.java.com", color: "#f89820" }
+  "Cloud & DevOps": [
+    { name: "AWS", icon: <FaAws />, color: "#FF9900" },
+    { name: "Azure", icon: <FaCloud />, color: "#008AD7" },
+    { name: "Kubernetes", icon: <FaCloud />, color: "#326CE5" },
+    { name: "Docker", icon: <FaDocker />, color: "#0db7ed" },
+    { name: "Terraform", icon: <FaCloud />, color: "#623CE4" },
+    { name: "Jenkins", icon: <FaCloud />, color: "#D24939" },
+    { name: "Linux", icon: <FaLinux />, color: "#000000" },
+    { name: "OpenShift", icon: <FaCloud />, color: "#EE0000" }
   ],
-  Cloud: [
-    { name: "AWS", icon: <FaAws />, link: "https://aws.amazon.com", color: "#FF9900" },
-    { name: "Docker", icon: <FaDocker />, link: "https://docker.com", color: "#0db7ed" }
+  "Data & ML": [
+    { name: "Spark", icon: <FaCloud />, color: "#E25A1C" },
+    { name: "Hadoop", icon: <FaCloud />, color: "#66CCFF" },
+    { name: "Kafka", icon: <FaCloud />, color: "#231F20" },
+    { name: "Airflow", icon: <FaCloud />, color: "#017CEE" },
+    { name: "SQL/NoSQL", icon: <FaCloud />, color: "#336791" },
+    { name: "MongoDB", icon: <FaCloud />, color: "#47A248" },
+    { name: "Postgres", icon: <FaCloud />, color: "#336791" },
+    { name: "TensorFlow", icon: <FaCloud />, color: "#FF6F00" },
+    { name: "PyTorch", icon: <FaCloud />, color: "#EE4C2C" }
   ],
-  Tools: [
-    { name: "Git", icon: <FaGitAlt />, link: "https://git-scm.com", color: "#F1502F" }
+  "Frameworks & Tools": [
+    { name: "React", icon: <FaReact />, color: "#61DBFB" },
+    { name: "Node.js", icon: <FaNodeJs />, color: "#339933" },
+    { name: "Git", icon: <FaGitAlt />, color: "#F1502F" }
   ]
 };
 
@@ -50,17 +69,12 @@ const Skills = () => {
                   key={index}
                   className="skill-item"
                 >
-                  {skill.icon && (
-                    <a
-                      href={skill.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="skill-icon-link"
-                      style={{ color: skill.color }}
-                    >
-                      <span className="skill-icon">{skill.icon}</span>
-                    </a>
-                  )}
+                  <span
+                    className="skill-icon-link"
+                    style={{ color: skill.color }}
+                  >
+                    <span className="skill-icon">{skill.icon}</span>
+                  </span>
                   <span className="skill-name">{skill.name}</span>
                 </motion.li>
               ))}

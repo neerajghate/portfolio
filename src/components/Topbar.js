@@ -1,44 +1,30 @@
 import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";      // feather-icons burger / close
 import "./Topbar.css";
 
 const Topbar = () => {
-  const [open, setOpen] = useState(false);
-
-  // close the menu after a link click (handy on mobile)
-  const handleLinkClick = () => setOpen(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="topbar">
-      <div className="topbar-row">
-        <a href="#hero" className="logo">Neeraj&nbsp;Ghate</a>
+    <div className="topbar">
+      <a href="#hero" className="logo">
+        <img src="/NG.png" alt="Logo" className="logo-image" />
+        <span className="logo-text">Neeraj Ghate</span>
+      </a>
 
-        {/* ── hamburger ────────────────────────────────────────── */}
-        <button
-          className="menu-btn"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
-
-        {/* ── nav links ───────────────────────────────────────── */}
-        <nav className={open ? "open" : ""}>
-          {[
-            ["about", "About"],
-            ["experience", "Experience"],
-            ["education", "Education"],
-            ["skills", "Skills"],
-            ["projects", "Projects"],
-            ["certifications", "Certifications"],
-          ].map(([id, label]) => (
-            <a key={id} href={`#${id}`} onClick={handleLinkClick}>
-              {label}
-            </a>
-          ))}
+      <div className="right-side">
+        <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </div>
+        <nav className={menuOpen ? "open" : ""}>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
+          <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
+          <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+          <a href="#certifications" onClick={() => setMenuOpen(false)}>Certifications</a>
         </nav>
       </div>
-    </header>
+    </div>
   );
 };
 

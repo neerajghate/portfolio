@@ -2,13 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem 2rem 4rem;
-  background-color: #fff;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 50%, #e6f2fa 100%);
   color: #111;
   flex-wrap: wrap;
   gap: 2rem;
-  border-radius: 0 0 2rem 2rem;
+  transition: background-color 0.4s ease-in-out;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
+
 
 .hero-text {
   flex: 1;
@@ -133,7 +136,7 @@
   }
 
   .hero-image {
-    max-width: 250px;
+    max-width: 200px;
     margin-top: 1rem;
   }
 }
